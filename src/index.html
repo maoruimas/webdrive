@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width,initial-scale=1'>
+        <title>个人网盘</title>
+        <link rel="shortcut icon" href="data:image/x-icon;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAABm1BMVEUAAADL4+OqzMqhxsOtzsyrzcuoysi41tWrzMq23OCx2+Botb6z0tEOpssJkqgKlKwJkaYKla0IkKQNocMKla4IjqLL4+PL4+PH4OCw0M6qzMrL4+PL4+PL4+PH4OCuz82qzMqrzcvL4+PL4+OqzMqrzMqrzMqrzcvL4+PL4+PL4+OqzMqqzMqrzMrL4+PL4+OqzMrL4+PL4+OqzMqqzMrL4+PL4+OqzMrL4+PL4+OqzMqrzMrL4+PL4+OqzMqszcvL4+PL4+PO5OOt2d8eq80SlaqIwMOtzcuqzMqqzMqrzcvL4+PL4+OMz9tOu9MRp8wLk6g5pLNxuL6ozMqwz80JpcoMpcsOpssJkqgHkagGkagOpssOpssJkqgJk6kOpssJkqgOp80NosQKla0JkqgMn74Kl7HL4+PH4OCuzs2qzMrN5OPJ4eCwz82szcrH4uKo2N+d0tqJwcWKwMOlysmx2+Aqr88VpscRl60bmKyMwcSt2d8eq80Mo8YIlKwSlaqJwMOu2t8frM0JlKwNo8YKlKwOpssJkqgAAAD33tIMAAAAZ3RSTlMAAAAAAAAAAAAAAAAAAAAAAAAAAAAABjNQOwwdnOj37a8tCqzLZ00WLIb5+sU1WeTAJNj2TlP4Xkj070ESuZ8JK6/r7f3+7+vfkhgJJ0dz8PZ8SSADfO79/vCKHbXAJLjCH7nDJxwgp8znLgAAAAFiS0dEAIgFHUgAAAAJcEhZcwAAAGQAAABkAA+Wxd0AAAAHdElNRQfkCBMMHxGdLZeMAAAA60lEQVQY02NgYGBkZBQTl5CUYmJmYQADRkZpGVk5eQVFJiZWNhaQvJJyenpGZpaKqpo6EztQQENTCyyQlaWto8vEwKinn56enp2TmwcUyTJQZzA0AvLzCwqLikuAAsYmDKZmQPnSsvKKyiqgGm1zBgtLoEB1TW1dfQNQwMqawcYWKNDYVNsMFrCzZ2B0cJR1cnapbXZ1c/fw9OIAWuvt4+vn39IcEBgUHMIBtJaRkys0LLylNSIyioGblQfodF7e6Ji2ltb22Dg+frBfeIEi8S2tCXF8AoIMMJHEpOQUPiEoHyQinJomIgrmAwDTXDt84YlsWAAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0wNy0xOVQwMzozOToyMCswMDowMIZnDlwAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMDYtMjBUMDE6NDE6MjUrMDA6MDCmsax5AAAAIHRFWHRzb2Z0d2FyZQBodHRwczovL2ltYWdlbWFnaWNrLm9yZ7zPHZ0AAABjdEVYdHN2Zzpjb21tZW50ACBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIM5IkAsAAAAYdEVYdFRodW1iOjpEb2N1bWVudDo6UGFnZXMAMaf/uy8AAAAYdEVYdFRodW1iOjpJbWFnZTo6SGVpZ2h0ADMzMSA/HAsAAAAXdEVYdFRodW1iOjpJbWFnZTo6V2lkdGgAMzM5vRXEZAAAABl0RVh0VGh1bWI6Ok1pbWV0eXBlAGltYWdlL3BuZz+yVk4AAAAXdEVYdFRodW1iOjpNVGltZQAxNTkyNjE3Mjg1fosRWQAAABJ0RVh0VGh1bWI6OlNpemUAMTIxNDJCO2AsYgAAAFp0RVh0VGh1bWI6OlVSSQBmaWxlOi8vL2RhdGEvd3d3cm9vdC93d3cuZWFzeWljb24ubmV0L2Nkbi1pbWcuZWFzeWljb24uY24vZmlsZXMvMTI4LzEyODQ2MjgucG5nk7MZdAAAAABJRU5ErkJggg==" />
+        <link rel='stylesheet' type='text/css' href='css/index.css'>
+    </head>
+    <body>
+        <div id='toolbar' class='rowlayout'>
+            <input type='checkbox'>
+            <span id='toolbar-label'>文件名</span>
+            <button onclick='download()'>下载</button>
+            <button onclick='rename()'>重命名</button>
+            <button onclick='dirtree()'>移动</button>
+            <button onclick='remove()'>删除</button>
+        </div>
+        <div id='addressbar' class='rowlayout'></div>
+        <ul id='item-list'></ul>
+        <div id='addbutton' onclick='$("#addmenu").fadeIn(100)'>+</div>
+        
+        <div id='itemmenu' class='popup' style='display: none;'>
+            <div class='menu'>
+                <div onclick='download()'>下载</div>
+                <div onclick='rename()'>重命名</div>
+                <div onclick='dirtree()'>移动</div>
+                <div onclick='remove()'>删除</div>
+            </div>
+        </div>
+
+        <div id='addmenu' class='popup center' style='display: none;'>
+            <div class='menu'>
+                <div onclick='newfolder()'>新建文件夹</div>
+                <div onclick='$("#upload-files").click()'>上传文件</div>
+            </div>
+        </div>
+        <div id='menu-item'></div>
+
+        <div id='movedialog' class='popup center' style='display: none;'>
+            <div class='dialog'>
+                <ul id='treeview'></ul>
+                <input type='text' id='moveto' class='dialog-textinput'><button class='dialog-button' onclick='move()'>确定</button>
+            </div>
+        </div>
+
+        <div id='droparea' class='popup' style='display: none;'></div>
+
+        <div class='hidden'>
+            <input id='upload-files' type='file' multiple oninput='upload(this.files); this.value = "";'>
+        </div>
+        <iframe name='hiddenframe' style='display: none;'></iframe>
+
+        <script src='js/jquery.min.js'></script>
+        <script src='js/index.js'></script>
+    </body>
+</html>
