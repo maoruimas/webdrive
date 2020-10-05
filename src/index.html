@@ -15,6 +15,7 @@
             <button onclick='rename()'>重命名</button>
             <button onclick='dirtree()'>移动</button>
             <button onclick='remove()'>删除</button>
+			<button onclick='share()'>分享</button>
         </div>
         <div id='addressbar' class='rowlayout'></div>
         <ul id='item-list'></ul>
@@ -26,6 +27,7 @@
                 <div onclick='rename()'>重命名</div>
                 <div onclick='dirtree()'>移动</div>
                 <div onclick='remove()'>删除</div>
+				<div onclick='share()'>分享</div>
             </div>
         </div>
 
@@ -48,6 +50,7 @@
 
         <div class='hidden'>
             <input id='upload-files' type='file' multiple oninput='upload(this.files); this.value = "";'>
+			<input id='clipboard'>
         </div>
         <iframe name='hiddenframe' style='display: none;'></iframe>
 

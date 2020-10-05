@@ -219,6 +219,6 @@ a:hover {
 }
 
 .hidden {
-    width: 0; height: 0;
-    overflow: hidden;
+	position: fixed;
+    top: -9999px;
 }

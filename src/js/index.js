@@ -39,6 +39,17 @@ function download() {
     window.open('php/download.php?'+urlEncode({ path: path, items: getSelected() }), 'hiddenframe');
 }
 
+const clipboard = document.querySelector('#clipboard');
+function share() {
+	clipboard.value = `${document.location.href}php/download.php?${urlEncode({ path: path, items: getSelected() })}`;
+    clipboard.select();
+    if (document.execCommand('copy')) {
+        alert('已复制到剪贴板');
+    } else {
+		alert('无法写入剪贴板');
+    }
+}
+
 function rename() {
     var oldName = getSelected()[0];
     var newName = prompt('', oldName);
